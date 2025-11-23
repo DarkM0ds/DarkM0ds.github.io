@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dulut — Main</title>
+  <meta name="description" content="Dulut — simple, modern single-file landing page template." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%233c6df0'/%3E%3Ctext x='50' y='58' font-size='48' text-anchor='middle' fill='white' font-family='sans-serif'%3ED%3C/text%3E%3C/svg%3E">
+  <style>
+    /* ===== Dulut — single-file stylesheet ===== */
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#4f46e5; --muted:#9aa4b2; --glass: rgba(255,255,255,0.04);
+      --radius:14px; --flow:1.25rem;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(79,109,230,0.12), transparent),
+                  linear-gradient(180deg, #071126 0%, var(--bg) 60%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:2rem;
+      line-height:1.45;
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .logo{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:inline-grid;place-items:center;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,36,0.6)}
+    .logo strong{font-size:20px;letter-spacing:.5px}
+    nav{display:flex;gap:1rem;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:.5rem .75rem;border-radius:8px}
+    nav a.primary{background:linear-gradient(90deg,rgba(79,109,230,0.12),rgba(6,182,212,0.06));color:#eaf0ff}
+    button.cta{background:linear-gradient(90deg,var(--accent),#06b6d4);border:none;padding:.6rem .9rem;border-radius:10px;color:white;font-weight:600;cursor:pointer}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:center;margin-top:2rem}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:2rem;border-radius:18px;box-shadow:0 10px 30px rgba(3,7,18,0.6);backdrop-filter: blur(6px)}
+    h1{margin:0 0 .5rem;font-size:2.1rem}
+    p.lead{color:var(--muted);margin:0 0 1.25rem}
+    .actions{display:flex;gap:.75rem}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.5rem}
+    .feature{background:var(--card);padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .feature h3{margin:.25rem 0 .5rem}
+    .muted{color:var(--muted);font-size:.94rem}
+
+    /* Right panel mock */
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .mock{height:280px;border-radius:10px;background:linear-gradient(180deg,#0b1220 0%, #081026 100%);display:flex;flex-direction:column;gap:.5rem;padding:1rem}
+    .mock .row{display:flex;gap:.5rem}
+    .chip{background:var(--glass);padding:.35rem .6rem;border-radius:999px;font-size:.82rem;color:var(--muted)}
+
+    /* Footer */
+    footer{margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .panel{order:2}
+    }
+
+    /* small helpers */
+    .kbd{background:rgba(255,255,255,0.03);padding:.22rem .35rem;border-radius:6px;font-size:.82rem}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><strong>D</strong></div>
+        <div>
+          <div style="font-weight:700">Dulut</div>
+          <div style="font-size:12px;color:var(--muted)">Simple UI for ideas & projects</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="primary">Contact</a>
+        <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="hero-card" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Dulut — clean landing template</h1>
+        <p class="lead">A small, single-file HTML template you can adapt for prototypes, project pages, or quick MVP landing pages. Fully responsive and accessible — ready to edit.</p>
+
+        <div class="actions">
+          <button class="cta" onclick="alert('Welcome to Dulut!')">Try Demo</button>
+          <a href="#features" style="align-self:center;color:var(--muted);text-decoration:none">See features →</a>
+        </div>
+
+        <div class="features" id="features" style="margin-top:1.5rem">
+          <article class="feature">
+            <div class="muted">Responsive</div>
+            <h3>Works on any screen</h3>
+            <p class="muted">Grid-based layout that adapts from mobile to wide desktop.</p>
+          </article>
+
+          <article class="feature">
+            <div class="muted">Accessible</div>
+            <h3>Built with accessibility</h3>
+            <p class="muted">Keyboard-friendly interactions, semantic markup, and clear focus states.</p>
+          </article>
+
+          <article class="feature">
+            <div class="muted">Single-file</div>
+            <h3>Copy & paste to start</h3>
+            <p class="muted">No build step — everything is contained in this single HTML file.</p>
+          </article>
+        </div>
+
+      </section>
+
+      <aside class="panel" aria-label="Preview panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+          <div style="font-weight:700">Preview</div>
+          <div class="muted">v1.0</div>
+        </div>
+
+        <div class="mock" role="img" aria-label="UI mock preview">
+          <div class="row"><div class="chip">New</div><div class="chip">UI</div><div class="chip">Alpha</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.5rem">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9S3 16.97 3 12z" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="font-weight:700">Dulut Mock</div>
+            <div class="muted">Lightweight components • Fast to iterate</div>
+          </div>
+
+          <div style="display:flex;gap:.5rem;justify-content:flex-end">
+            <div class="kbd">⌘K</div>
+            <div class="muted" style="align-self:center">Quick search</div>
+          </div>
+        </div>
+
+        <div style="margin-top:.9rem;display:flex;gap:.5rem;justify-content:space-between">
+          <div class="muted" style="font-size:.9rem">Status: <strong style="color:var(--accent)">Active</strong></div>
+          <div style="font-size:.85rem" class="muted">Users: <strong>1.2k</strong></div>
+        </div>
+
+      </aside>
+    </main>
+
+    <section id="pricing" style="margin-top:1.5rem">
+      <h2 style="margin:0 0 .5rem">Pricing</h2>
+      <p class="muted">Simple pricing to get started — expand later.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1rem">
+        <div class="feature">
+          <div class="muted">Starter</div>
+          <h3>$0</h3>
+          <p class="muted">For experimentation and personal projects.</p>
+        </div>
+        <div class="feature">
+          <div class="muted">Pro</div>
+          <h3>$12 / mo</h3>
+          <p class="muted">For small teams and prototypes.</p>
+        </div>
+        <div class="feature">
+          <div class="muted">Enterprise</div>
+          <h3>Contact us</h3>
+          <p class="muted">Custom plans for larger teams.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:1.5rem">
+      <h2 style="margin:0 0 .5rem">Contact</h2>
+      <p class="muted">Send a quick message — this form is non-functional in the template but shows how you'd include one.</p>
+
+      <form onsubmit="event.preventDefault(); alert('Thanks — message sent (demo)')" style="margin-top:.75rem;display:grid;gap:.5rem;grid-template-columns:1fr 160px;align-items:start">
+        <input aria-label="Your name" placeholder="Your name" required style="padding:.7rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+        <input aria-label="Email" placeholder="Email" required style="padding:.7rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+        <textarea aria-label="Message" placeholder="Message" required style="grid-column:1/ -1;padding:.75rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;min-height:100px"></textarea>
+        <button class="cta" type="submit">Send</button>
+      </form>
+    </section>
+
+    <footer>
+      <div>&copy; " + new Date().getFullYear() + " Dulut — made with care</div>
+      <div class="muted">Built single-file • Edit freely</div>
+    </footer>
+  </div>
+
+  <script>
+    // Small enhancement: close focus outline only when using mouse
+    (function(){
+      function handleFirstTab(e){
+        if(e.key === 'Tab') document.documentElement.classList.add('user-is-tabbing');
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
