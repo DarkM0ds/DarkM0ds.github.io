@@ -1,57 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Mods</title>
   <style>
-    /* Full-page setup */
-    html, body {
-      width: 100%;
-      height: 100%;
+    body {
       margin: 0;
-      padding: 0;
-      overflow: hidden;
-      position: relative;
-      font-family: sans-serif;
-    }
-
-    /* New animated background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1; /* Keep behind all content */
-      background: linear-gradient(270deg, #ff0000, #ff9900, #00ff00, #00ffff, #0000ff, #ff00ff);
-      background-size: 1200% 1200%;
-      animation: gradientShift 20s ease infinite;
-      filter: blur(80px); /* Adjust blur as desired */
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Your original content styles go here */
-    .content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
+      font-family: Arial, sans-serif;
       color: white;
-      padding: 50px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #000000 0%, #2b0000 100%);
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      background: #111;
+      border-bottom: 1px solid #222;
+    }
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #222;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #222;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #8b0000;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      background: #5a0000;
+    }
+
+    /* Moving starfield */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><circle cx="20" cy="20" r="1" fill="red"/><circle cx="200" cy="40" r="1" fill="red"/><circle cx="150" cy="250" r="1" fill="red"/><circle cx="60" cy="180" r="1" fill="red"/><circle cx="280" cy="90" r="1" fill="red"/></svg>') repeat;
+      opacity: 0.5;
+      animation: starScroll 90s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::after {
+      animation-duration: 160s;
+      opacity: 0.3;
+    }
+
+    @keyframes starScroll {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-50%, -50%); }
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <!-- Your original content starts here -->
-    <h1>Welcome to My Page</h1>
-    <p>This will soon be the website for the project 'dark mods'</p>
-    <!-- More of your content -->
+  <header>Dark Mods</header>
+
+  <div class="hero">
+    <h1>Discord Modding Simplified</h1>
+    <p>Dark Mods lets you customize Discord with custom themes, UI tweaks, and powerful modifications — safely and easily.</p>
+    <a class="btn" href="#download">Download</a>
   </div>
+
+  <div class="section">
+    <div class="card">
+      <h2>Features</h2>
+      <p>• Custom themes<br>• UI customization<br>• Plugin support<br>• Easy installation</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Dark Mods — All Rights Reserved
+  </footer>
 </body>
 </html>
